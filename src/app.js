@@ -4,6 +4,7 @@ import Route from './Route.js';
 import homeView from './views/home.js';
 import contactView from './views/contact.js';
 import aboutView from './views/about.js';
+import profileView from './views/profile.js';
 
 (() => {
 
@@ -11,6 +12,7 @@ import aboutView from './views/about.js';
         new Route('home', '/', {}, homeView),
         new Route('contact', '/contact', {}, contactView),
         new Route('about', '/about', {}, aboutView),
+        new Route('profile', '/profile/:name', {}, profileView)
     ];
     
     const router = new Router(routes, document.getElementById('app'));

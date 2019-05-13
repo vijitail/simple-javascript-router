@@ -6,13 +6,11 @@ export default class Route {
         this.view = view;
     }
 
-    set props(newProps) {
-        console.log(this.props);
-        this._props = newProps;
+    setProps(newProps) {
+        this.props = newProps;
     }
 
     renderView() {
-        console.log(this.props);
         return this.view(this.props);
     }
 }
