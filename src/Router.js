@@ -12,10 +12,11 @@ export default class Router {
 
     navigate(path) {
         const route = this.routes.filter(route => route.path === path)[0];
-        // while( this.renderNode.firstChild ) renderNode.removeChild( this.renderNode.firstChild );
-        // this.renderNode.appendChild(document.createElement(route.view));
-        window.location.href = '#' + route.path;
-        this.renderNode.innerHTML = route.view;
+        if(!route) this.renderNode.innerHTML = "404! Page not found";
+        else {
+            window.location.href = '#' + route.path;
+            this.renderNode.innerHTML = route.view; // innerHTML must be avoided
+        }
     }
 
 }
