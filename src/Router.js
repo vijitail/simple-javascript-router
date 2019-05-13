@@ -15,7 +15,8 @@ export default class Router {
         if(!route) this.renderNode.innerHTML = "404! Page not found";
         else {
             window.location.href = '#' + route.path;
-            this.renderNode.innerHTML = route.view; // innerHTML must be avoided
+            route.props = {};
+            this.renderNode.innerHTML = route.renderView(); // innerHTML must be avoided
         }
     }
 

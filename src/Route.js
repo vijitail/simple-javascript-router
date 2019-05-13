@@ -5,4 +5,14 @@ export default class Route {
         this.props = props;
         this.view = view;
     }
+
+    set props(newProps) {
+        console.log(this.props);
+        this._props = newProps;
+    }
+
+    renderView() {
+        console.log(this.props);
+        return this.view(this.props);
+    }
 }
