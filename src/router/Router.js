@@ -11,10 +11,6 @@ export default class Router {
     }
 
     match(route, requestPath) {
-        // const routePathSplit = routePath.split('/').splice(1);
-        // const pathSplit = path.split('/').splice(1);
-        // return routePathSplit.length === pathSplit.length && routePathSplit[0] === pathSplit[0];
-
         let paramNames = [];
         let regexPath = route.path.replace(/([:*])(\w+)/g, (full, colon, name) => {
             paramNames.push(name);
