@@ -23,16 +23,17 @@ export default class Router {
 
         let params = {};
         let routeMatch = path.match(new RegExp(regexPath));
-        console.log(routeMatch);
+        console.log(routeMatch); 
         if(routeMatch !== null) {
             params = routeMatch
-                .slice(1, routeMatch, length)
+                .slice(1)
                 .reduce((params, value, index) => {
                     console.log(params);
                     if(params === null) params = {};
                     params[paramNames[index]] = value;
                     return params;
                 }, null);
+            console.log(params);
         }
 
         // console.log(params);
