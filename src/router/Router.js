@@ -2,12 +2,11 @@ export default class Router {
     constructor(routes = [], renderNode) {
         this.routes = routes;
         this.renderNode = renderNode;
-        this.navigate(location.pathname);
+        this.navigate(location.pathname + location.hash);
     }
 
     addRoutes(routes) {
         this.routes = [...this.routes, ...routes];
-        return this;
     }
 
     match(route, requestPath) {
@@ -38,7 +37,8 @@ export default class Router {
         const route = this.routes.filter(route => this.match(route, path))[0];
         if(!route) this.renderNode.innerHTML = "404! Page not found";
         else {
-            window.location.href = '#' + path;
+            console.log(path);
+            window.location.href = path.search('/#') === -1 ? '#' + path : path;
             this.renderNode.innerHTML = route.renderView(); // innerHTML must be avoided
         }
     }
